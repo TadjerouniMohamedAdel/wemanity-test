@@ -19,14 +19,14 @@ export class GildedRose {
 
   updateQuality() {
     this.items.forEach((product:Item) => {
-        if(product.name==="Sulfuras" && product.quality==80) return;
+        if(product.name.includes("Sulfuras") && product.quality==80) return;
         //update sellIn
         product.sellIn--;
 
         //update quality
-        if(product.name==="Aged Brie" || product.name==="Backstage passes"){
+        if(product.name.includes("Aged Brie") || product.name.includes("Backstage passes")){
           //increseaing quality
-          if(product.name==="Backstage passes"){
+          if(product.name.includes("Backstage passes")){
             // case Backstage passes
             if(product.sellIn <0){
               //after stage case
@@ -47,7 +47,9 @@ export class GildedRose {
           if(product.quality >50) product.quality=50;
         }
         else{
-         
+          // decreases speed depends on sellin
+          const decreasesSpeed = (product.sellIn <0 ? 2:1) * (product.name.includes("Conjured") ? 2 :1);
+          product.quality = product.quality -1*decreasesSpeed
         }
 
 
