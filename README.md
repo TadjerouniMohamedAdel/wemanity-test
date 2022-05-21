@@ -1,7 +1,3 @@
-# Gilded Rose
-
-This is the Gilded Rose kata in TypeScript.
-
 ## Getting started
 
 Install dependencies
@@ -10,36 +6,30 @@ Install dependencies
 npm install
 ```
 
-## Running app
-_You may need to install `ts-node`_
+## About test
 
-```sh
-npx ts-node test/golden-master-text-test.ts
+this test took me about 10 hours spread over 2 days (I had other tasks sorry)
+I took the time to design my solution, so I started by creating small uml activity diagrams to identify the different cases , implement the solution ,after the implementation i was focusing on the opimization
+
+<img src="diagram.jpg" />
+
+## Run and Test
+you can use the  repo test  command created initially 
+```bash
+npx ts-node test/golden-master-text-test.ts [day number]
 ```
 
-Or with number of days as args:
-```sh
-npx ts-node test/golden-master-text-test.ts 10
-```
+but for me this wasn't really a test it shows only the progression of (quality,sellIng) of items so for me without assertion it's just a debugging
 
-## Running tests
+for this reason i implement my own test for each case using JEST, please check the file **test/jest/gilded-rose.spec.ts**. to execute the test , please run the following commands:
 
-To run all tests
-
-### Jest way
-
-```sh
+```bash
 npm run test:jest
 ```
 
-To run all tests in watch mode
+note that the updateSystem method can be more optimized but it depends of the data case every optimization has its own better/worst case so i chosed the most appropriate in my opinion
 
-```sh
-npm run test:jest:watch
-```
 
-### Mocha way
-
-```sh
-npm run test:mocha
-```
+## Demand
+please i like to listen a feedback about my code. i accept any remarks and am open to suggestions.
+thank you
