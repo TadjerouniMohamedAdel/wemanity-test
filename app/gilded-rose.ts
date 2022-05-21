@@ -26,9 +26,28 @@ export class GildedRose {
         //update quality
         if(product.name==="Aged Brie" || product.name==="Backstage passes"){
           //increseaing quality
+          if(product.name==="Backstage passes"){
+            // case Backstage passes
+            if(product.sellIn <0){
+              //after stage case
+              product.quality=0;
+              return;
+            }
+            if(product.sellIn <=5) product.quality+=3;
+            else if(product.sellIn<=10) product.quality+=2;
+            else product.quality++
+
+          }else{
+            //case Aged Brie
+            product.quality++
+             
+          }
+
+          //product different than Sulfuras never more than 50 as quality
+          if(product.quality >50) product.quality=50;
         }
         else{
-          //degrade quality
+         
         }
 
 
