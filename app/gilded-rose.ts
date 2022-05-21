@@ -12,6 +12,8 @@ export class Item {
 
 export class GildedRose {
   items: Array<Item>;
+  //this value controll unit of decreases or increase by default i fix it to 1
+  static speed:number = 1;
 
   constructor(items = [] as Array<Item>) {
     this.items = items;
@@ -33,13 +35,13 @@ export class GildedRose {
               product.quality=0;
               return;
             }
-            if(product.sellIn <=5) product.quality+=3;
-            else if(product.sellIn<=10) product.quality+=2;
-            else product.quality++
+            if(product.sellIn <=5) product.quality+=(3*GildedRose.speed);
+            else if(product.sellIn<=10) product.quality+=(2*GildedRose.speed);
+            else product.quality+=(1*GildedRose.speed)
 
           }else{
             //case Aged Brie
-            product.quality++
+            product.quality+=(1*GildedRose.speed)
              
           }
 
@@ -49,7 +51,7 @@ export class GildedRose {
         else{
           // decreases speed depends on sellin
           const decreasesSpeed = (product.sellIn <0 ? 2:1) * (product.name.includes("Conjured") ? 2 :1);
-          product.quality = product.quality -1*decreasesSpeed
+          product.quality = product.quality -1*decreasesSpeed*GildedRose.speed
         }
 
 
