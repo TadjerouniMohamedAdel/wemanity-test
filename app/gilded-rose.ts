@@ -51,6 +51,7 @@ export class GildedRose {
           // decreases speed depends on sellin
           const decreasesSpeed = (product.sellIn <0 ? 2:1) * (product.name.match(/Conjured/i) ? 2 :1);
           product.quality = product.quality -1*decreasesSpeed*GildedRose.speed
+          product.quality= product.quality <= 0 ?0 :product.quality
         }
 
 
